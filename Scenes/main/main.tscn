@@ -1,3 +1,140 @@
-[gd_scene format=3 uid="uid://c3lluexol8ic"]
+[gd_scene load_steps=4 format=3 uid="uid://c3lluexol8ic"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b8gwd7kh6or0t" path="res://assets/Gray.png" id="1_lbni7"]
+[ext_resource type="LabelSettings" uid="uid://b0xbt1pdelxsi" path="res://Resources/TitleLabel96.tres" id="2_3hi0e"]
+[ext_resource type="PackedScene" uid="uid://ng7afwmbn55k" path="res://Scenes/level_button/level_button.tscn" id="3_t2073"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lbni7")
+stretch_mode = 1
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VB" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VB"]
+layout_mode = 2
+text = "SOKOBAN(ISH)"
+label_settings = ExtResource("2_3hi0e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MC/VB"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 6
+
+[node name="LevelButton" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton3" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton4" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton5" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton6" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton7" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton8" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton9" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton10" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton11" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton12" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton13" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton14" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton15" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton16" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton17" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton18" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton19" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton20" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton21" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton22" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton23" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton24" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton25" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton26" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton27" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton28" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton29" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
+
+[node name="LevelButton30" parent="MC/VB/GridContainer" instance=ExtResource("3_t2073")]
+layout_mode = 2
