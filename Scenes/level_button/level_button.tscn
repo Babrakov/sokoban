@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ng7afwmbn55k"]
+[gd_scene load_steps=6 format=3 uid="uid://ng7afwmbn55k"]
 
 [ext_resource type="Texture2D" uid="uid://s8ruw7kma7ei" path="res://assets/blue_panel.png" id="1_emb1w"]
 [ext_resource type="FontFile" uid="uid://6c0jkc2j2ffm" path="res://assets/LuckiestGuy-Regular.ttf" id="2_5vrgm"]
+[ext_resource type="Script" path="res://Scenes/level_button/level_button.gd" id="2_8hk3u"]
 [ext_resource type="Texture2D" uid="uid://mtcs11wq0xsf" path="res://assets/green_checkmark.png" id="3_pwdgj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l80uh"]
@@ -21,6 +22,7 @@ patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
+script = ExtResource("2_8hk3u")
 
 [node name="LevelLabel" type="Label" parent="."]
 layout_mode = 1
