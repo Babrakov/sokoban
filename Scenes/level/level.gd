@@ -7,8 +7,11 @@ const SOURCE_ID: int = 0
 @onready var walls_tiles: TileMapLayer = $TileLayers/Walls
 @onready var targets_tiles: TileMapLayer = $TileLayers/Targets
 @onready var boxes_tiles: TileMapLayer = $TileLayers/Boxes
+@onready var camera_2d: Camera2D = $Camera2D
+@onready var player: AnimatedSprite2D = $Player
 
 var _tile_size: int = 0
+var _player_tile: Vector2i = Vector2i.ZERO 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("exit"):
@@ -59,3 +62,14 @@ func setup_level() -> void:
 	setup_layer(TileLayers.LayerType.Targets, targets_tiles, level_layout)
 	setup_layer(TileLayers.LayerType.TargetBoxes, boxes_tiles, level_layout)
 	setup_layer(TileLayers.LayerType.Boxes, boxes_tiles, level_layout)
+	move_camera()
+	place_player_on_tile(level_layout.get_player_start())
+	
+
+func move_camera() -> void:
+	var tmr: Rect2i = floor_tiles.get_used_rect()
+	camera_2d.position = tmr.get_center() * _tile_size
+
+func place_player_on_tile(tile_coord: Vector2i) -> void:
+	player.position = Vector2i(tile_coord * _tile_size)
+	_player_tile = tile_coord
