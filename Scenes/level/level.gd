@@ -12,6 +12,7 @@ const SOURCE_ID: int = 0
 
 var _tile_size: int = 0
 var _player_tile: Vector2i = Vector2i.ZERO 
+var _game_over: bool = false
 
 func get_input_direction() -> Vector2i:
 	var md: Vector2i = Vector2i.ZERO
@@ -34,6 +35,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameManger.load_main_scene()
 	if event.is_action_pressed("reload"):
 		get_tree().reload_current_scene()
+	
+	if _game_over:
+		return
 	
 	var md: Vector2i = get_input_direction()
 	if md != Vector2i.ZERO:
@@ -94,6 +98,13 @@ func place_player_on_tile(tile_coord: Vector2i) -> void:
 	player.position = Vector2i(tile_coord * _tile_size)
 	_player_tile = tile_coord
 
+func check_game_state() -> void:
+	for t in targets_tiles.get_used_cells():
+		if !cell_is_box(t):
+			return
+	
+	_game_over = true
+
 func player_move(md: Vector2i) -> void:
 	var dest: Vector2i = _player_tile + md
 	
@@ -105,6 +116,7 @@ func player_move(md: Vector2i) -> void:
 		move_box(dest, md)
 	
 	place_player_on_tile(dest)
+	check_game_state()
 
 func cell_is_wall(cell: Vector2i) -> bool:
 	return cell in walls_tiles.get_used_cells()
