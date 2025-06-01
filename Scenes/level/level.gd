@@ -9,6 +9,7 @@ const SOURCE_ID: int = 0
 @onready var boxes_tiles: TileMapLayer = $TileLayers/Boxes
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var player: AnimatedSprite2D = $Player
+@onready var game_ui: GameUI = $CanvasLayer2/GameUI
 
 var _tile_size: int = 0
 var _player_tile: Vector2i = Vector2i.ZERO 
@@ -47,8 +48,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	print("Level Loaded: ", GameManger.get_level_selected())
 	_tile_size = floor_tiles.tile_set.tile_size.x
+	game_ui.set_moves_label(_moves_made)
 	setup_level()
 
 func get_atlas_coord(lt: TileLayers.LayerType) -> Vector2i:
@@ -88,7 +89,7 @@ func setup_level() -> void:
 	setup_layer(TileLayers.LayerType.Targets, targets_tiles, level_layout)
 	setup_layer(TileLayers.LayerType.TargetBoxes, boxes_tiles, level_layout)
 	setup_layer(TileLayers.LayerType.Boxes, boxes_tiles, level_layout)
-	move_camera()
+	move_camera()	
 	place_player_on_tile(level_layout.get_player_start())
 	
 
@@ -120,6 +121,7 @@ func player_move(md: Vector2i) -> void:
 	
 	place_player_on_tile(dest)
 	_moves_made += 1
+	game_ui.set_moves_label(_moves_made)
 	check_game_state()
 
 func cell_is_wall(cell: Vector2i) -> bool:

@@ -6,6 +6,9 @@ const MAIN = preload("res://Scenes/main/main.tscn")
 var _level_selected: String = "1"
 var _best_scores: HighScoresResource
 
+func get_best_score(level: String) -> int:
+	return _best_scores.get_best_score(level)
+
 func _enter_tree() -> void:
 	_best_scores = HighScoresResource.load_scores()
 
