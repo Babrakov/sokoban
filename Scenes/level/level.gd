@@ -108,6 +108,7 @@ func check_game_state() -> void:
 	
 	_game_over = true
 	var best: bool = GameManger.level_completed(_level, _moves_made)
+	game_ui.game_over(_moves_made, best)
 
 func player_move(md: Vector2i) -> void:
 	var dest: Vector2i = _player_tile + md

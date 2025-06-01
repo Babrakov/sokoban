@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl33iea172ios"]
+[gd_scene load_steps=7 format=3 uid="uid://dl33iea172ios"]
 
 [ext_resource type="LabelSettings" uid="uid://de8in2ljjvxpc" path="res://Resources/NormalLabel32.tres" id="1_kb5vf"]
 [ext_resource type="Script" uid="uid://eed23p2q1dew" path="res://Scenes/game_ui/game_ui.gd" id="1_rrrjh"]
+[ext_resource type="Texture2D" uid="uid://blaiktpuu3eo7" path="res://assets/panel_beigeLight.png" id="3_8ltpb"]
+[ext_resource type="FontFile" uid="uid://6c0jkc2j2ffm" path="res://assets/LuckiestGuy-Regular.ttf" id="4_qmmd8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ucyi"]
+font = ExtResource("4_qmmd8")
+font_size = 64
+outline_size = 15
+outline_color = Color(0.301961, 0.329412, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qmmd8"]
+font = ExtResource("4_qmmd8")
+font_size = 42
+font_color = Color(0, 0.74902, 0.870588, 1)
+outline_size = 9
+outline_color = Color(0.301961, 0.329412, 1, 1)
+shadow_size = 2
+shadow_color = Color(0.282353, 0.282353, 0.282353, 0)
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -68,4 +85,65 @@ vertical_alignment = 1
 layout_mode = 2
 text = "-"
 label_settings = ExtResource("1_kb5vf")
+vertical_alignment = 1
+
+[node name="GameOverNPR" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -180.0
+offset_right = 280.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8ltpb")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MC" type="MarginContainer" parent="GameOverNPR"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VB" type="VBoxContainer" parent="GameOverNPR/MC"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="GameOverNPR/MC/VB"]
+layout_mode = 2
+text = "LEVEL COMPLETE!"
+label_settings = SubResource("LabelSettings_2ucyi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VB" type="VBoxContainer" parent="GameOverNPR/MC/VB"]
+layout_mode = 2
+
+[node name="MovesLabel" type="Label" parent="GameOverNPR/MC/VB/VB"]
+layout_mode = 2
+text = "You took xxx moves"
+label_settings = SubResource("LabelSettings_qmmd8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RecordLabel" type="Label" parent="GameOverNPR/MC/VB/VB"]
+visible = false
+layout_mode = 2
+text = "A new record!"
+label_settings = SubResource("LabelSettings_qmmd8")
+horizontal_alignment = 1
 vertical_alignment = 1
